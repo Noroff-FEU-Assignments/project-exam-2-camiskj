@@ -1,0 +1,129 @@
+.admin-menu {
+  margin-bottom: 50px;
+
+  a {
+    margin-right: 10px;
+  }
+}
+
+.admin-button {
+  @include submit-button;
+
+  &:hover, &:active {
+    @include submit-button-hover;
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+.edit-establishments {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+
+  li {
+    padding: 10px;
+    border-bottom: 1px solid $color-secondary;
+  }
+}
+
+// CSS for EditId and AddEstablishment {
+
+.admin-form {
+
+  input, textarea, select {
+    @include form-input;
+  }
+
+  button {
+    @include submit-button;
+
+    &:active, &:hover {
+      @include submit-button-hover;
+    }
+  }
+
+  textarea {
+    height: 200px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  .delete {
+    position: absolute;
+    right: 15px;
+  }
+
+}
+
+//CSS for admin messages
+
+.messages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $color-secondary;
+  padding-bottom: 20px;
+
+  &__from, &__email {
+    flex: 2;
+  }
+
+  &__delete {
+    flex: 1;
+    text-align: right;
+
+    button {
+      border: 0;
+      background: transparent;
+      font-size: 20px;
+
+      &:hover, &:active {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__textarea {
+    flex-basis: 100%;
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+}
+
+//CSS for admin enquiries
+
+.enquiries {
+  @extend .messages;
+
+  &__from, &__email {
+    flex: 1;
+  }
+
+  &__delete {
+    @extend .messages__delete
+  }
+
+  &__establishment {
+    flex-basis: 100%;
+  }
+
+  &__fromDate, &__toDate {
+    flex: 1.2;
+  }
+
+  &__adults, &__children {
+    flex: 1;
+  }
+
+  &__textarea {
+    flex-basis: 100%;
+  }
+}

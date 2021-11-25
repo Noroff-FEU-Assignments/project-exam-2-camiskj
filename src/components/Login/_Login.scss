@@ -1,0 +1,24 @@
+.login-form {
+  position: absolute;
+  top: 130px;
+  padding: 0 15px;
+  width: 100%;
+
+  form {
+    text-align: right;
+
+    input {
+      @include form-input;
+      border: 0;
+      box-shadow: 5px 5px 20px $color-secondary;
+    }
+
+    button {
+      @include submit-button;
+
+      &:active, &:hover {
+        @include submit-button-hover;
+      }
+    }
+  }
+}

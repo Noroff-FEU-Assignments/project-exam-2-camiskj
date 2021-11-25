@@ -1,0 +1,31 @@
+.enquiry-form {
+
+  form {
+
+    input, textarea, select {
+      @include form-input;
+    }
+
+    button {
+      @include submit-button;
+
+      &:active, &:hover {
+        @include submit-button-hover;
+      }
+    }
+
+    textarea {
+      height: 100px;
+    }
+  }
+
+
+  &__date, &__people {
+    display: flex;
+    gap: 5px;
+
+    div {
+      flex: 1;
+    }
+  }
+}

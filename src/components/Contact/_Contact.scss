@@ -1,0 +1,21 @@
+.contact-form {
+
+  form {
+
+    input, textarea {
+      @include form-input;
+    }
+
+    button {
+      @include submit-button;
+
+      &:active, &:hover {
+        @include submit-button-hover;
+      }
+    }
+
+    textarea {
+      height: 200px;
+    }
+  }
+}

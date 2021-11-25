@@ -1,0 +1,68 @@
+footer {
+  background: $color-grey;
+  padding: 50px 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    padding: 50px;
+    flex-direction: row;
+  }
+
+  @media only screen and (min-width: $breakpoint-laptop) {
+    padding: 50px 100px;
+  }
+
+  div {
+    flex: 1;
+  }
+}
+
+.footer__nav {
+
+  a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid $color-secondary;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: all .5s ease;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid $color-secondary;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: all .5s ease;
+    text-align: left;
+    background: inherit;
+
+    &:hover {
+      color: $color-secondary;
+      background: inherit;
+    }
+  }
+}
+
+.footer__address {
+
+  p {
+    margin: 0;
+  }
+}
+
+.footer_copy {
+  flex-basis: 100%;
+  text-align: center;
+}

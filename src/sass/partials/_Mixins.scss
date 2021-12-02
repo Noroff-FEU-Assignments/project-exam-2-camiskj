@@ -1,4 +1,4 @@
-@mixin form-input {
+@mixin formInput {
   width: 100%;
   margin-bottom: 20px;
   padding: 10px;
@@ -7,7 +7,7 @@
   border-radius: 5px;
 }
 
-@mixin submit-button {
+@mixin submitButton {
   border: 0;
   width: 100px;
   color: white;
@@ -17,7 +17,7 @@
   box-shadow: 0 1px $color-secondary;
 }
 
-@mixin submit-button-hover {
+@mixin submitButton-hover {
   transform: translateY(2px);
   box-shadow: inset 0 5px 10px -5px #fff;
 }

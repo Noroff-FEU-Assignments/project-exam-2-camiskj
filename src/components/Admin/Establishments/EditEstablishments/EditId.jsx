@@ -26,9 +26,7 @@ export default function EditId() {
 	});
 
 	const http = useAxios();
-
 	let { id } = useParams();
-
 	const url = `wp/v2/pages/${id}`;
 
 	useEffect(
@@ -36,10 +34,10 @@ export default function EditId() {
 			async function getPage() {
 				try {
 					const response = await http.get(url);
-					console.log("response", response.data);
+					// console.log("response", response.data);
 					setPage(response.data);
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
 					setFetchError(error.toString());
 				} finally {
 					setFetchingPage(false);
@@ -61,14 +59,14 @@ export default function EditId() {
 			data.featured_media = null;
 		}
 
-		console.log(data);
+		// console.log(data);
 
 		try {
 			const response = await http.put(url, data);
 			console.log("response", response.data);
 			setUpdated(true);
 		} catch (error) {
-			console.log("error", error);
+			// console.log("error", error);
 			setUpdateError(error.toString());
 		} finally {
 			setUpdatingPage(false);
@@ -82,10 +80,8 @@ export default function EditId() {
 	return (
 		<AdminPage>
 			<h2>Edit establishment</h2>
-
-			<form onSubmit={handleSubmit(onSubmit)} className="admin-form">
-				{updated && <div className="form-success"><i className="lar la-check-circle"></i> The post was updated</div>}
-
+			<form onSubmit={handleSubmit(onSubmit)} className="adminForm">
+				{updated && <div className="formSuccess"><i className="lar la-check-circle"></i> The establishment has been updated</div>}
 				{updateError && <FormError>{updateError}</FormError>}
 
 				<fieldset disabled={updatingPage}>

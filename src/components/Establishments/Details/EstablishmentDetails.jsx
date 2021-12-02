@@ -9,9 +9,7 @@ export default function EditPage() {
 	const [fetchError, setFetchError] = useState(null);
 
 	let { id } = useParams();
-
 	const url = `wp/v2/pages/${id}`;
-
 	const http = useAxios();
 
 	useEffect(
@@ -19,10 +17,10 @@ export default function EditPage() {
 			async function getPage() {
 				try {
 					const response = await http.get(url);
-					console.log("response", response.data);
+					// console.log("response", response.data);
 					setPage(response.data);
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
 					setFetchError(error.toString());
 				} finally {
 					setFetchingPage(false);
@@ -32,8 +30,11 @@ export default function EditPage() {
 			getPage();
 			// eslint-disable-next-line
 		},
-		[]
 	);
+
+	useEffect(() => {
+		document.title = "Establishments | Holidaze";
+	}, []);
 
 	if (fetchingPage) return <div>Loading...</div>;
 
@@ -44,13 +45,13 @@ export default function EditPage() {
   }
 
 	return (
-		<div className="container add-space">
+		<div className="container addSpace">
 			<h1>{page.title.rendered}</h1>
-			<Link to="/make-enquiry" className="booking-button">Book now</Link>
+			<Link to="/make-enquiry" className="bookingButton">Book now</Link>
 			<div className="content">
 				<div dangerouslySetInnerHTML={createContent()} className="content__fetch"/>
 			</div>
-			<div className="carousel-hotelimg">
+			<div className="carouselHotelImg">
 				<Carousel interval={null} variant="light" nextIcon={<i className="las la-angle-right"></i>} prevIcon={<i className="las la-angle-left"></i>}>
 				<Carousel.Item>
 					<img src={page.x_featured_media_original} alt={page.title.rendered}/>

@@ -1,21 +1,25 @@
-.enquiry-form {
+.enquiryForm {
 
   form {
 
     input, textarea, select {
-      @include form-input;
+      @include formInput;
     }
 
     button {
-      @include submit-button;
+      @include submitButton;
 
       &:active, &:hover {
-        @include submit-button-hover;
+        @include submitButton-hover;
       }
     }
 
     textarea {
       height: 100px;
+    }
+
+    &__date input {
+      -webkit-appearance: none;
     }
   }
 
@@ -27,5 +31,13 @@
     div {
       flex: 1;
     }
+  }
+}
+
+.modal button {
+  @include submitButton;
+
+  &:active, &:hover {
+    @include submitButton-hover;
   }
 }

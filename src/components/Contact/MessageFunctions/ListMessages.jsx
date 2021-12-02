@@ -15,7 +15,7 @@ const ListMessages = () => {
         return message
       })
     )
-  }
+  };
 
   const delMessage = id => {
     setMessages([
@@ -23,18 +23,18 @@ const ListMessages = () => {
         return message.id !== id
       }),
     ])
-  }
+  };
 
   function getInitialMessages() {
     const temp = localStorage.getItem("messages")
     const savedMessages = JSON.parse(temp)
     return savedMessages || []
-  }
+  };
 
   useEffect(() => {
     const temp = JSON.stringify(messages)
     localStorage.setItem("messages", temp)
-  }, [messages])
+  }, [messages]);
 
     return (
       <div>

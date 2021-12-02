@@ -28,7 +28,7 @@ export default function Footer() {
 				)}
 			</div>
 			<div className="footer__address">
-				<p>Holidaze A/S</p>
+				<p>Holidaze Tourism Agency</p>
 				<p>Bergen Centrum</p>
 				<p>Way of Rain 22</p>
 				<p>2000 Bergen</p>

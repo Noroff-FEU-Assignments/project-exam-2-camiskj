@@ -6,6 +6,21 @@
   overflow-x: auto;
   align-items: center;
   padding: 20px 0;
+  scrollbar-width: thin;
+  scrollbar-color: $color-secondary white;
+  
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-secondary;
+    border-radius: 20px;
+  }
 
   a:hover {
     color: $color-secondary;
@@ -19,6 +34,7 @@
     min-width: 150px;
     font-size: 18px;
   }
+
 }
 
 //CSS for searchbar on homepage
@@ -95,8 +111,7 @@
   }
 }
 
-
-.booking-button {
+.bookingButton {
   display: block;
   text-align: center;
   width: 100px;
@@ -115,7 +130,7 @@
   }
 }
 
-.carousel-hotelimg {
+.carouselHotelImg {
 
   .carousel {
     margin: 40px 0;

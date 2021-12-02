@@ -7,7 +7,7 @@ export default function EstablishmentList() {
 			<h2>Edit establishments</h2>
 			<EditEstablishments />
       <p>
-				<Link to="/admin/add-establishment" className="admin-button">Add new establishment</Link>
+				<Link to="/admin/add-establishment" className="adminMenu__button">Add new establishment</Link>
 			</p>
 		</>
 	);

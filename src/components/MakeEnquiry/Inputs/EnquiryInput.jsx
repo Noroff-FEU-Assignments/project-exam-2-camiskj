@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import FormError from "../Common/FormError";
+import FormError from "../../Common/FormError";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import ConfirmationModal from "../Confirmation/ConfirmationModal";
 
 const schema = yup.object().shape({
 	name: yup.string().required("Please enter your name"),
@@ -14,6 +15,7 @@ const schema = yup.object().shape({
 });
 
 export default function EnquiryInput (props) {
+  const [modalShow, setModalShow] = useState(false);
   const [sent, setSent] = useState(false);
   const [inputText, setInputText] = useState({
     name: "",
@@ -24,14 +26,14 @@ export default function EnquiryInput (props) {
     peopleAdults: "",
     peopleChildren: "0",
     message: "",
-  })
+  });
 
   const onChange = e => {
     setInputText({
-        ...inputText,
-        [e.target.name]: e.target.value,
-    })
-  }
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
@@ -48,39 +50,39 @@ export default function EnquiryInput (props) {
       peopleAdults: "",
       peopleChildren: "",
       message: "",
-    })
+    });
 
     setSent(true);
-  } 
+  };
 
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <div>
-    <form onSubmit={handleSubmit(onSubmit)}>
-    {sent && <div className="form-success"><i className="lar la-check-circle"></i> Enquiry is sent</div>}
-      <div>
-        <label>Your name</label>
-        <input
-          type="text"
-          value={inputText.name}
-          name="name"          
-          onChange={onChange}
-          ref={register}
-        />
-        {errors.name && <FormError>{errors.name.message}</FormError>}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {sent && <ConfirmationModal show={modalShow} onHide={() => setModalShow(false)} />}
+        <div>
+          <label>Your name</label>
+          <input
+            type="text"
+            value={inputText.name}
+            name="name"          
+            onChange={onChange}
+            ref={register}
+          />
+          {errors.name && <FormError>{errors.name.message}</FormError>}
         </div>
 
         <div>
-        <label>Email</label>
-        <input
-          type="text"
-          value={inputText.email}
-          name="email"          
-          onChange={onChange}
-          ref={register}
-        />
-        {errors.email && <FormError>{errors.email.message}</FormError>}
+          <label>Email</label>
+          <input
+            type="text"
+            value={inputText.email}
+            name="email"          
+            onChange={onChange}
+            ref={register}
+          />
+          {errors.email && <FormError>{errors.email.message}</FormError>}
         </div>
 
         <div>
@@ -99,9 +101,9 @@ export default function EnquiryInput (props) {
             <option value="Ulriken Bed And Breakfast">Ulriken Bed And Breakfast</option>
           </select>
           {errors.establishment && <FormError>{errors.establishment.message}</FormError>}
-				</div>
+        </div>
 
-        <div className="enquiry-form__people">
+        <div className="enquiryForm__people">
           <div>
             <label>How many adults</label>
             <select
@@ -130,7 +132,7 @@ export default function EnquiryInput (props) {
           </div>
         </div>
 
-        <div className="enquiry-form__date">
+        <div className="enquiryForm__date">
           <div>
             <label>From date</label>
             <input type="date" name="fromDate" onChange={onChange} ref={register}
@@ -146,16 +148,16 @@ export default function EnquiryInput (props) {
         </div>
 
         <div>
-        <label>Notes</label>
-        <textarea
-          value={inputText.message}
-          name="message"          
-          onChange={onChange}
-          placeholder="Any notes you may have regarding your enquiry"
-        />
+          <label>Notes</label>
+          <textarea
+            value={inputText.message}
+            name="message"          
+            onChange={onChange}
+            placeholder="Any notes you may have regarding your enquiry"
+          />
         </div>
-      <button>Submit</button>
-    </form>
+        <button onClick={() => setModalShow(true)}>Submit</button>
+      </form>
     </div>
   )
 }

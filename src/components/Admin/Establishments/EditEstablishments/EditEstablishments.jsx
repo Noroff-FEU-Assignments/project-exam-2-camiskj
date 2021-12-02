@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAxios from "../../../../hooks/useAxios";
 
 export default function EditEstablishments() {
-	const [posts, setPages] = useState([]);
+	const [pages, setPages] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -13,10 +13,10 @@ export default function EditEstablishments() {
 		async function getMedia() {
 			try {
 				const response = await http.get("wp/v2/pages");
-				console.log("response", response);
+				// console.log("response", response);
 				setPages(response.data);
 			} catch (error) {
-				console.log(error);
+				// console.log(error);
 				setError(error.toString());
 			} finally {
 				setLoading(false);
@@ -32,8 +32,8 @@ export default function EditEstablishments() {
 	if (error) return <div>Error: could not display establishments</div>;
 
 	return (
-		<ul className="edit-establishments">
-			{posts.map((media) => {
+		<ul className="editEstablishments">
+			{pages.map((media) => {
 				return (
 					<li key={media.id}>
 						<Link to={`/admin/edit-establishments/${media.id}`}>{media.title.rendered}</Link>

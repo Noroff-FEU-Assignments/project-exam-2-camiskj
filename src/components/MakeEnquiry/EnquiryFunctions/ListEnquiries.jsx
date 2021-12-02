@@ -15,7 +15,7 @@ const ListEnquiries = () => {
         return enquiry
       })
     )
-  }
+  };
 
   const delEnquiry = id => {
     setEnquiries([
@@ -23,18 +23,18 @@ const ListEnquiries = () => {
         return enquiry.id !== id
       }),
     ])
-  }
+  };
 
   function getInitialEnquiries() {
     const temp = localStorage.getItem("enquiries")
     const savedEnquiries = JSON.parse(temp)
     return savedEnquiries || []
-  }
+  };
 
   useEffect(() => {
     const temp = JSON.stringify(enquiries)
     localStorage.setItem("enquiries", temp)
-  }, [enquiries])
+  }, [enquiries]);
 
     return (
       <div>

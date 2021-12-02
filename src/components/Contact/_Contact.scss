@@ -1,16 +1,16 @@
-.contact-form {
+.contactForm {
 
   form {
 
     input, textarea {
-      @include form-input;
+      @include formInput;
     }
 
     button {
-      @include submit-button;
+      @include submitButton;
 
       &:active, &:hover {
-        @include submit-button-hover;
+        @include submitButton-hover;
       }
     }
 

@@ -1,8 +1,14 @@
 import SearchEstablishments from "../Establishments/Search/SearchEstablishments";
 import FeaturedEstablishments from "../Establishments/Featured/FeaturedEstablishments";
 import Reviews from "./Reviews/Reviews";
+import { useEffect } from "react";
 
 export default function HomePage() {
+
+	useEffect(() => {
+		document.title = "Holidaze tourism agency";
+	}, []);
+
 	return (
 		<>
 			<header>

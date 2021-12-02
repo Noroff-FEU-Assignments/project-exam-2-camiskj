@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -33,24 +33,28 @@ export default function AddEstablishment() {
 			data.featured_media = null;
 		}
 
-		console.log(data);
+		// console.log(data);
 
 		try {
 			const response = await http.post("/wp/v2/pages", data);
 			console.log("response", response.data);
 			history.push("/admin");
 		} catch (error) {
-			console.log("error", error);
+			// console.log("error", error);
 			setServerError(error.toString());
 		} finally {
 			setSubmitting(false);
 		}
 	}
 
+	useEffect(() => {
+		document.title = "Add establishment | Holidaze";
+	}, []);
+
 	return (
 		<AdminPage>
 			<h2>Add establishment</h2>
-			<form onSubmit={handleSubmit(onSubmit)} className="admin-form">
+			<form onSubmit={handleSubmit(onSubmit)} className="adminForm">
 				{serverError && <FormError>{serverError}</FormError>}
 				<fieldset disabled={submitting}>
 					<div>
@@ -59,7 +63,15 @@ export default function AddEstablishment() {
 					</div>
 
 					<div>
-						<textarea name="content" placeholder="Content" ref={register} />
+						<textarea name="content" placeholder="Content" ref={register}>
+							&lt;p class="description"&gt;Description&lt;/p&gt;
+							&lt;p class="location"&gt;&lt;i class="las la-map-marker"&gt;&lt;/i&gt;Location&lt;/p&gt;
+							&lt;p class="facilities__headline"&gt;Facilities&lt;/p&gt;
+							&lt;ul class="facilities"&gt;
+							&lt;li&gt;Facility&lt;/li&gt;
+							&lt;/ul&gt;
+							&lt;p class="price"&gt;&lt;span&gt;From&lt;/span&gt; Price&lt;/p&gt;
+						</textarea>
 					</div>
 
 					<div>

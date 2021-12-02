@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import EnquiryInput from "./EnquiryInput"
+import React, { useState, useEffect } from "react";
+import EnquiryInput from "../Inputs/EnquiryInput";
 import { v4 as uuidv4 } from "uuid";
 
 const AddEnquiry = () => {
@@ -18,23 +18,21 @@ const AddEnquiry = () => {
       message: message,
     }
     setEnquiries([...enquiries, newEnquiry])
-  }
+  };
 
   function getInitialEnquiries() {
     const temp = localStorage.getItem("enquiries")
     const savedEnquiries = JSON.parse(temp)
     return savedEnquiries || []
-  }
+  };
 
   useEffect(() => {
     const temp = JSON.stringify(enquiries)
     localStorage.setItem("enquiries", temp)
-  }, [enquiries])
+  }, [enquiries]);
 
     return (
-      <>
         <EnquiryInput addEnquiryProps={addEnquiryItem} />
-      </>
     );
   }
 

@@ -1,23 +1,22 @@
-.admin-menu {
+.adminMenu {
   margin-bottom: 50px;
+
+  &__button {
+    @include submitButton;
+  
+    &:hover, &:active {
+      @include submitButton-hover;
+      color: white;
+      text-decoration: none;
+    }
+  }
 
   a {
     margin-right: 10px;
   }
 }
 
-.admin-button {
-  @include submit-button;
-
-  &:hover, &:active {
-    @include submit-button-hover;
-    color: white;
-    text-decoration: none;
-  }
-
-}
-
-.edit-establishments {
+.editEstablishments {
   list-style-type: none;
   padding: 0;
   margin-bottom: 40px;
@@ -30,17 +29,18 @@
 
 // CSS for EditId and AddEstablishment {
 
-.admin-form {
+.adminForm {
+  position: relative;
 
   input, textarea, select {
-    @include form-input;
+    @include formInput;
   }
 
   button {
-    @include submit-button;
+    @include submitButton;
 
     &:active, &:hover {
-      @include submit-button-hover;
+      @include submitButton-hover;
     }
   }
 
@@ -54,7 +54,7 @@
 
   .delete {
     position: absolute;
-    right: 15px;
+    right: 0;
   }
 
 }
@@ -73,9 +73,13 @@
     flex: 2;
   }
 
-  &__delete {
+  &__replyOrDelete {
     flex: 1;
     text-align: right;
+
+    a {
+      font-size: 20px;
+    }
 
     button {
       border: 0;
@@ -92,7 +96,7 @@
     flex-basis: 100%;
   }
 
-  &__title {
+  .messageTitle {
     margin-bottom: 0;
     font-weight: bold;
   }
@@ -107,8 +111,8 @@
     flex: 1;
   }
 
-  &__delete {
-    @extend .messages__delete
+  &__replyOrDelete {
+    @extend .messages__replyOrDelete
   }
 
   &__establishment {

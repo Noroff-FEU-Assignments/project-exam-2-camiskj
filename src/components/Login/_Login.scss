@@ -1,23 +1,29 @@
-.login-form {
+.loginForm {
   position: absolute;
   top: 130px;
   padding: 0 15px;
   width: 100%;
 
+  @media only screen and (min-width: $breakpoint-tablet) {
+    width: 600px;
+    left: 50%;
+    margin-left: -300px;
+  }
+
   form {
     text-align: right;
 
     input {
-      @include form-input;
+      @include formInput;
       border: 0;
       box-shadow: 5px 5px 20px $color-secondary;
     }
 
     button {
-      @include submit-button;
+      @include submitButton;
 
       &:active, &:hover {
-        @include submit-button-hover;
+        @include submitButton-hover;
       }
     }
   }

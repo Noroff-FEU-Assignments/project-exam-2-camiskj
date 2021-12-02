@@ -9,6 +9,10 @@
       margin: 0 50px;
     }
 
+    @media only screen and (max-width: 850px) and (orientation: landscape) {
+      top: 130px;
+    }
+
     &-important {
       font-size: 20px;
       border-bottom: 1px solid $color-secondary;
@@ -31,10 +35,11 @@
       }
     }
   }
-
 }
 
-.carousel-review {
+//CSS for review carousel
+
+.carouselReview {
 
   blockquote::before {
     content: "\275B";
@@ -48,7 +53,6 @@
 
   .carousel {
     background: $color-secondary;
-    margin-bottom: 50px;
     height: 500px;
 
     @media only screen and (min-width: $breakpoint-laptop) {

@@ -14,10 +14,10 @@ export default function FeaturedEstablishments() {
 		async function getMedia() {
 			try {
 				const response = await http.get("wp/v2/pages");
-				console.log("response", response);
+				// console.log("response", response);
 				setPages(response.data);
 			} catch (error) {
-				console.log(error);
+				// console.log(error);
 				setError(error.toString());
 			} finally {
 				setLoading(false);

@@ -6,25 +6,21 @@ import logo from "../Images/logo.png";
 
 function Nav() {
 	const [auth, setAuth] = useContext(AuthContext);
-
 	const history = useHistory();
-
 	const [open, toggleOpen] = useState(false);
 
 	function logout() {
 		setAuth(null);
 		history.push("/");
 		toggleOpen(!open);
-	}
+	};
 
 	function toggle() {
 	 toggleOpen(!open);
-	}
+	};
 
 	const active = useLocation();
-
   const { pathname } = active;
-
   const location = pathname.split("/");
 
 	return (

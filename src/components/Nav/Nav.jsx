@@ -27,7 +27,7 @@ function Nav() {
 		<nav>
 			<Link to="/"><img src={logo} alt="Logo" /></Link>
 			<p className="title">Holidaze</p>
-			<button className="nav__bar" onClick={toggle}>{open ? <i className="las la-times"></i> : <i className="las la-bars"></i>}</button>
+			<button className="nav__bar" aria-label="Navigation bar" onClick={toggle}>{open ? <i className="las la-times"></i> : <i className="las la-bars"></i>}</button>
 			<div className={open ? "" : "closed"}>
 				<div className="nav__toggled">
 					<Link to="/" onClick={toggle} className={location[1] === "" ? "active" : ""}>Home</Link>

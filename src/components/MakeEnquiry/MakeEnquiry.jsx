@@ -9,7 +9,7 @@ export default function Messages() {
 	}, []);
 
 	return (
-		<div className="container add-space enquiryForm">
+		<div className="container addSpace enquiryForm">
       <Heading content="Make enquiry" />
 			<AddEnquiry />
 		</div>
